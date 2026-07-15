@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Parlo Communications — Strategische Kommunikation · Eva Rössler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Parlo Communications: strategische Kommunikation, die nicht beim Konzept aufhört, sondern erst dann fertig ist, wenn sie wirkt. Eva Rössler, München." />
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="icon" href="assets/parlo-wordmark-transparent.png" />
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body { background: #FFEBE6; font-family: 'Inter', system-ui, sans-serif; color: #181B33; }
+    a { background-image: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 72px; scroll-behavior: smooth; }
+    button { font: inherit; }
+    img { max-width: 100%; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 30;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      box-shadow: none;
+      transition: background 240ms cubic-bezier(.2,.7,.2,1), border-color 240ms cubic-bezier(.2,.7,.2,1), box-shadow 240ms cubic-bezier(.2,.7,.2,1);
+    }
+    .site-header.scrolled {
+      background: #FFEBE6;
+      border-bottom: 1px solid rgba(58,74,154,.10);
+      box-shadow: 0 1px 12px rgba(58,74,154,.06);
+    }
+    .site-header__inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 16px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .site-header__logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .site-header__logo img { height: 54px; width: auto; display: block; }
+    .site-header__logo .logo-scrolled { display: none; }
+    .site-header.scrolled .logo-default { display: none; }
+    .site-header.scrolled .logo-scrolled { display: block; }
+    .site-nav { display: flex; gap: 32px; align-items: center; }
+    .site-nav a {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: 14.5px;
+      color: #FFEBE6; text-decoration: none; background: none;
+      padding: 6px 0; letter-spacing: -0.005em;
+      transition: color 240ms cubic-bezier(.2,.7,.2,1);
+    }
+    .site-header.scrolled .site-nav a { color: #181B33; }
+    @media (max-width: 760px) {
+      .site-nav { display: none; }
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      font-family: 'Jost', system-ui, sans-serif; font-weight: 500;
+      border: 1px solid transparent; border-radius: 999px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 200ms cubic-bezier(.2,.7,.2,1);
+      padding: 12px 22px; font-size: 14px; line-height: 1;
+      text-decoration: none; background: none;
+    }
+    .btn:active { transform: scale(0.985); }
+    .btn-sm { padding: 8px 14px; font-size: 13px; }
+    .btn-primary, .btn-onblue { background: #EA5239; color: #fff; }
+    .btn-onblue-ghost { background: transparent; color: #FFEBE6; border-color: rgba(255,235,230,.32); }
+    .btn svg { width: 14px; height: 14px; }
+    .btn-sm svg { width: 14px; height: 14px; }
+
+    /* ---------- Eyebrow ---------- */
+    .eyebrow {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px;
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { background: #3A4A9A; color: #FFEBE6; padding: 110px 32px; position: relative; overflow: hidden; }
+    .hero__inner { max-width: 1280px; margin: 0 auto; }
+    .hero__grid {
+      display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+      gap: 72px; align-items: center;
+    }
+    .hero h1 {
+      font-family: 'Jost', sans-serif; font-weight: 500;
+      font-size: clamp(40px, 4.8vw, 70px); line-height: 1.08; letter-spacing: -0.02em;
+      color: #FFEBE6; margin: 0 0 32px; text-wrap: balance;
+    }
+    .hero h1 .quote { color: #EA5239; }
+    .hero h1 .script { font-family: 'Pacifico', cursive; color: #EA5239; font-weight: 400; letter-spacing: 0; }
+    .hero p.lead {
+      font-family: 'Inter', sans-serif; font-size: 19px; line-height: 1.55;
+      color: #E0DAEE; margin: 0 0 40px; max-width: 620px;
+    }
+    .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero__portrait { position: relative; }
+    .hero__portrait-frame {
+      position: absolute; inset: 24px -24px -24px 24px;
+      background: #EA5239; border-radius: 4px; z-index: 0;
+    }
+    .hero__portrait img {
+      position: relative; z-index: 1; width: 100%; display: block;
+      aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%;
+      border-radius: 4px; box-shadow: 0 24px 64px rgba(31,42,102,.35);
+    }
+    .hero__caption {
+      position: relative; z-index: 1; margin-top: 18px; margin-left: 56px;
+      display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; color: #FFEBE6;
+    }
+    .hero__caption-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: -0.005em; }
+    .hero__caption-role {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #FFEBE6;
+    }
+    @media (max-width: 900px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__portrait { max-width: 360px; }
+    }
+
+    /* ---------- Intro ---------- */
+    .intro { background: #FFEBE6; padding: 120px 32px 100px; position: relative; overflow: hidden; }
+    .intro__wordmark {
+      position: absolute; right: -110px; bottom: -60px; width: 560px; height: auto;
+      opacity: 0.18; pointer-events: none; user-select: none;
+    }
+    .intro__inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .intro__statement {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.32; letter-spacing: -0.01em; color: #181B33; margin: 12px 0 0;
+      max-width: 1000px; text-wrap: balance;
+    }
+    .script-accent { font-family: 'Pacifico', cursive; color: #EA5239; font-weight: 400; }
+    .intro__pillars {
+      margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 48px; row-gap: 32px; border-top: 1px solid rgba(58,74,154,.14); padding-top: 40px;
+    }
+    .intro__pillar-title {
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: 18px;
+      color: #3A4A9A; letter-spacing: -0.005em; margin-bottom: 6px;
+    }
+    .intro__pillar-sub { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.55; color: #5A5F7A; }
+    @media (max-width: 760px) {
+      .intro__pillars { grid-template-columns: 1fr; }
+    }
+    .intro__ai {
+      margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(58,74,154,.14);
+      display: grid; grid-template-columns: 160px 1fr; gap: 40px; align-items: start;
+    }
+    .intro__ai-label {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #EA5239; padding-top: 8px;
+    }
+    .intro__ai p {
+      font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.65;
+      color: #181B33; margin: 0; max-width: 820px;
+    }
+    @media (max-width: 640px) {
+      .intro__ai { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Services ---------- */
+    .services { background: #E0DAEE; padding: 120px 32px; }
+    .services .eyebrow { color: #3A4A9A; }
+    .services__inner { max-width: 1280px; margin: 0 auto; }
+    .service-row {
+      display: grid; grid-template-columns: 120px 1fr; gap: 48px;
+      padding: 56px 0; border-top: 1px solid rgba(58,74,154,.20); align-items: start;
+    }
+    .service-row__num {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 72px;
+      color: #EA5239; line-height: 0.9; letter-spacing: -0.02em;
+    }
+    .service-row__body { max-width: 820px; }
+    .service-row .eyebrow { color: #3A4A9A; }
+    .service-row h3 {
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(28px, 2.6vw, 40px);
+      line-height: 1.1; letter-spacing: -0.015em; color: #181B33; margin: 0 0 22px; text-wrap: balance;
+    }
+    .service-row > .service-row__body > p {
+      font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: #181B33; margin: 0 0 20px;
+    }
+    .expand {
+      display: grid; grid-template-rows: 0fr; transition: grid-template-rows 320ms cubic-bezier(.2,.7,.2,1);
+    }
+    .expand.open { grid-template-rows: 1fr; }
+    .expand > div { overflow: hidden; }
+    .expand p {
+      font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #5A5F7A;
+      margin: 0 0 8px; padding-left: 16px; border-left: 2px solid rgba(234,82,57,.45);
+    }
+    .expand-toggle {
+      margin-top: 8px; display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: 14px;
+      color: #EA5239; background: none; border: none; cursor: pointer;
+      padding: 8px 0; letter-spacing: -0.005em;
+    }
+    .expand-toggle svg { width: 16px; height: 16px; transition: transform 200ms; }
+    .expand-toggle.open svg { transform: rotate(180deg); }
+    .services__rule { border-top: 1px solid rgba(58,74,154,.20); }
+    @media (max-width: 640px) {
+      .service-row { grid-template-columns: 1fr; gap: 16px; }
+      .service-row__num { font-size: 48px; }
+    }
+
+    /* ---------- About ---------- */
+    .about { background: #3A4A9A; color: #FFEBE6; padding: 120px 32px; }
+    .about__inner { max-width: 1280px; margin: 0 auto; }
+    .about__grid { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 80px; align-items: start; }
+    .about__portrait-col { position: sticky; top: 100px; }
+    .about__portrait-col img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; display: block; }
+    .about__nameplate { margin-top: 18px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .about__nameplate-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 22px; color: #FFEBE6; letter-spacing: -0.015em; }
+    .about__nameplate-role {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #E0DAEE;
+    }
+    .about .eyebrow { color: #E0DAEE; }
+    .about h2 {
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(40px, 4.4vw, 64px);
+      line-height: 1.05; letter-spacing: -0.02em; color: #FFEBE6; margin: 0 0 32px; text-wrap: balance;
+    }
+    .about__lead {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: clamp(22px, 2vw, 28px);
+      line-height: 1.35; letter-spacing: -0.005em; color: #FFEBE6; margin: 0 0 40px; max-width: 720px;
+    }
+    .about__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
+    .about__tag {
+      display: inline-flex; align-items: center; font-family: 'Jost', sans-serif; font-weight: 400;
+      font-size: 13px; color: #FFEBE6; padding: 7px 14px; border-radius: 999px;
+      border: 1px solid rgba(255,235,230,.32);
+    }
+    .about-row {
+      display: grid; grid-template-columns: minmax(0, 140px) minmax(0, 1fr); gap: 32px;
+      padding: 28px 0; border-top: 1px solid rgba(255,235,230,.18);
+    }
+    .about-row__label {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #E0DAEE; padding-top: 4px;
+    }
+    .about-row p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #FFEBE6; margin: 0; }
+    .about-row .expand p { color: #E0DAEE; margin: 14px 0 0; padding-left: 16px; border-left: 2px solid rgba(234,82,57,.55); }
+    @media (max-width: 900px) {
+      .about__grid { grid-template-columns: 1fr; }
+      .about__portrait-col { position: static; max-width: 320px; }
+    }
+    @media (max-width: 560px) {
+      .about-row { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    /* ---------- Network ---------- */
+    .network { background: #FFEBE6; padding: 120px 32px; }
+    .network__inner { max-width: 1280px; margin: 0 auto; }
+    .network__head {
+      display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px;
+      margin-bottom: 64px; align-items: end;
+    }
+    .network .eyebrow { color: #EA5239; }
+    .network h2 {
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(32px, 3.4vw, 48px);
+      line-height: 1.15; letter-spacing: -0.015em; color: #181B33; margin: 0; text-wrap: balance;
+    }
+    .network__head p {
+      font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: #5A5F7A; margin: 0; max-width: 640px;
+    }
+    .network__list { display: flex; flex-direction: column; gap: 24px; max-width: 820px; margin: 0 auto; }
+    .partner {
+      background: #FFFBF8; border: 1px solid rgba(58,74,154,.10); border-radius: 18px; padding: 28px;
+      display: grid; grid-template-columns: 190px 1fr; gap: 32px; align-items: start;
+    }
+    .partner img { width: 100%; aspect-ratio: 4 / 5; border-radius: 12px; display: block; object-fit: cover; object-position: center top; }
+    .partner__name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 24px; color: #181B33; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .partner__role {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #5A5F7A;
+    }
+    .partner p.text { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.65; color: #5A5F7A; margin: 14px 0 0; }
+    @media (max-width: 760px) {
+      .network__head { grid-template-columns: 1fr; }
+      .partner { grid-template-columns: 1fr; }
+      .partner img { max-width: 220px; }
+    }
+
+    /* ---------- Contact ---------- */
+    .contact { background: #E0DAEE; padding: 120px 32px; position: relative; overflow: hidden; }
+    .contact__wordmark {
+      position: absolute; right: -120px; bottom: -80px; width: 720px; height: auto;
+      opacity: 0.18; pointer-events: none; user-select: none;
+    }
+    .contact__inner {
+      max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start; position: relative;
+    }
+    .contact .eyebrow { color: #3A4A9A; }
+    .contact h2 {
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(48px, 5.4vw, 80px);
+      line-height: 1; letter-spacing: -0.025em; color: #1F2A66; margin: 0 0 32px; text-wrap: balance;
+    }
+    .contact__copy p { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: #2C3A82; margin: 0 0 24px; max-width: 480px; }
+    .contact-form {
+      background: #FFFBF8; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 16px;
+      box-shadow: 0 24px 64px rgba(58,74,154,.16);
+    }
+    .contact-form__eyebrow {
+      font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #EA5239; margin-bottom: 2px;
+    }
+    .contact-form h3 {
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: 19px; color: #181B33;
+      margin: 0 0 6px; letter-spacing: -0.005em; line-height: 1.35;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+    label.field { display: block; }
+    label.field .field-label {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #5A5F7A; margin-bottom: 6px;
+    }
+    .field-input {
+      width: 100%; box-sizing: border-box; font-family: 'Inter', sans-serif; font-size: 15px;
+      color: #181B33; background: #FFFBF8; border: 1px solid rgba(58,74,154,.20);
+      border-radius: 10px; padding: 12px 14px; outline: none;
+    }
+    .field-input:focus { border-color: rgba(234,82,57,.55); }
+    textarea.field-input { min-height: 120px; resize: vertical; font-family: 'Inter', sans-serif; }
+    .contact-form__footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; gap: 16px; }
+    .contact-form__consent { font-family: 'Inter', sans-serif; font-size: 12px; color: #8A8FA8; margin: 0; max-width: 240px; line-height: 1.5; }
+    .contact-form__sent { padding: 32px 8px 16px; text-align: center; }
+    .contact-form__sent svg { width: 36px; height: 36px; color: #EA5239; }
+    .contact-form__sent h3 { font-size: 22px; margin: 12px 0 6px; }
+    .contact-form__sent p { font-family: 'Inter', sans-serif; font-size: 14px; color: #5A5F7A; margin: 0; }
+    @media (max-width: 860px) {
+      .contact__inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 460px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: #3A4A9A; color: #FFEBE6; padding: 64px 32px 24px; position: relative; overflow: hidden; }
+    .site-footer__inner { max-width: 1280px; margin: 0 auto; position: relative; }
+    .site-footer__brand {
+      padding-bottom: 40px; border-bottom: 1px solid rgba(255,235,230,.16);
+      display: flex; justify-content: center;
+    }
+    .site-footer__brand img { height: clamp(140px, 16vw, 240px); width: auto; display: block; }
+    .site-footer__row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px; gap: 48px; flex-wrap: wrap;
+    }
+    .site-footer__claim {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.3; letter-spacing: -0.005em; color: #E0DAEE; margin: 0;
+    }
+    .site-footer__nav { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+    .site-footer__nav a {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: 14px; color: #FFEBE6;
+      text-decoration: none; background: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .site-footer__nav a svg { width: 14px; height: 14px; }
+    .site-footer__meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,235,230,.10);
+      font-family: 'Inter', sans-serif; font-size: 12px; color: #C9D0EA; flex-wrap: wrap; gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="Parlo Communications">
+        <img class="logo-default" src="assets/parlo-lockup-transparent.png" alt="Parlo Communications" />
+        <img class="logo-scrolled" src="assets/parlo-lockup-on-beige.png" alt="Parlo Communications" />
+      </a>
+      <nav class="site-nav">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="#kontakt">
+        Erstgespräch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__grid">
+        <div>
+          <div class="eyebrow" style="color:#E0DAEE;">Strategische Kommunikationsberatung · München</div>
+          <h1><span class="quote">„</span>Die meisten Unternehmen haben etwas zu sagen. Sie sagen es nur nicht so, dass es <span class="script">gehört wird</span>.<span class="quote">"</span></h1>
+          <p class="lead">Parlo Communications steht für Kommunikation, die durchdringt.</p>
+          <div class="hero__actions">
+            <a class="btn btn-onblue" href="#kontakt">
+              Reden wir
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="btn btn-onblue-ghost" href="#leistungen">
+              Mein Angebot
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero__portrait">
+          <div class="hero__portrait-frame" aria-hidden="true"></div>
+          <img src="assets/founder/web/eva-headshot.jpg" alt="Eva Rössler" />
+          <div class="hero__caption">
+            <div class="hero__caption-name">Eva Rössler</div>
+            <div class="hero__caption-role">Inhaberin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <img class="intro__wordmark" src="assets/parlo-wordmark-transparent.png" alt="" aria-hidden="true" />
+    <div class="intro__inner">
+      <div class="eyebrow" style="color:#EA5239;">Was Parlo Communications macht</div>
+      <p class="intro__statement">
+        Ich glaube daran, dass Kommunikation erst dann gut ist, wenn sie
+        auf <span class="script-accent">Unternehmensziele</span> einzahlt. Deshalb entwickle
+        ich bei Parlo Communications Botschaften, die hängen bleiben, und
+        Strategien, die auch dann standhalten, wenn es schwierig wird.
+      </p>
+      <div class="intro__pillars">
+        <div>
+          <div class="intro__pillar-title">Interne Kommunikation</div>
+          <div class="intro__pillar-sub">die Unternehmen und Teams bewegt.</div>
+        </div>
+        <div>
+          <div class="intro__pillar-title">Externe Kommunikation</div>
+          <div class="intro__pillar-sub">die Märkte und Stakeholder erreicht.</div>
+        </div>
+        <div>
+          <div class="intro__pillar-title">Positionierung</div>
+          <div class="intro__pillar-sub">die auch in der Krise belastbar bleibt.</div>
+        </div>
+      </div>
+
+      <div class="intro__ai">
+        <div class="intro__ai-label">Zur Rolle von KI</div>
+        <p>
+          <span class="script-accent">KI</span> ist heute Teil des Prozesses und gehört in jedes moderne Kommunikations-Setup. Wer aber glaubt, dass Kommunikation
+          künftig ausschließlich von Algorithmen übernommen wird, verwechselt
+          Kommunikation mit Content-Produktion. Vertrauen, Reputation, echte
+          Verbindung zu Zielgruppen und Stakeholdern sind keine
+          Automatisierungsaufgaben. Das sind <span class="script-accent">Beziehungsaufgaben</span>.
+          Mit Parlo Communications unterstütze ich in beiden Welten.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="leistungen" class="services">
+    <div class="services__inner">
+      <div class="eyebrow">Mein Angebot</div>
+
+      <div style="margin-top:24px;">
+
+        <article class="service-row">
+          <div class="service-row__num">01</div>
+          <div class="service-row__body">
+            <div class="eyebrow">Viel Strategie, null Aktionismus.</div>
+            <h3>Strategische Kommunikationsberatung</h3>
+            <p>Eine Pressemitteilung ist keine Kommunikationsstrategie, und viele Einzelmaßnahmen ergeben noch keinen Plan. Bei Parlo Communications fange ich anders an: Kommunikation muss auf Unternehmensziele einzahlen, messbar sein, zur Zielgruppe passen und über alle Kanäle zusammenhängen. Von der Medienarbeit bis zur Krisenkommunikation. Alles andere ist einfach nur viel Lärm.</p>
+            <div class="expand" data-expand>
+              <div>
+                <p>Welches Unternehmensziel soll bedient werden und was bedeutet dabei Erfolg? Das sind zentrale Fragen, die für mich am Anfang jeder Kommunikationsstrategie stehen. Daraus leite ich ab, wer die relevanten Zielgruppen sind und über welche Kanäle sie wirklich erreicht werden. Am Ende steht ein Fahrplan mit messbaren Maßnahmen, konsistenten Botschaften, klaren Prioritäten. So klar, dass der Plan auch in der Krise noch trägt.</p>
+              </div>
+            </div>
+            <button type="button" class="expand-toggle" data-expand-toggle>
+              <span data-label>Mehr lesen</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-row__num">02</div>
+          <div class="service-row__body">
+            <div class="eyebrow">Sichtbar werden, authentisch bleiben.</div>
+            <h3>Personal Branding &amp; Positionierung</h3>
+            <p>Personal Branding funktioniert nicht, wenn man sich dafür verbiegen muss. Ich positioniere Führungspersönlichkeiten und Executives authentisch. Dazu gehören bei Bedarf auch Medientraining und Präsentationstraining, zugeschnitten aufs Format. Damit die Sichtbarkeit dem Unternehmen nützt und zur Person passt, die dahintersteht.</p>
+            <div class="expand" data-expand>
+              <div>
+                <p>Ich helfe dabei, die authentischste und wirkungsvollste Außenwirkung einer Person zu finden und konsequent auszuspielen, auf LinkedIn und in Medien, auf Panels und in Interviews, auch intern vor den eigenen Mitarbeitenden. Nicht jeder Kanal passt zu jeder Person, deshalb achte ich bewusst darauf, wo und wie sich jemand wirklich authentisch zeigen kann. Damit keine Bühnenversion, sondern glaubwürdige Sichtbarkeit entsteht. Executive Positioning, das zum Menschen passt und auf Unternehmensziele einzahlt.</p>
+              </div>
+            </div>
+            <button type="button" class="expand-toggle" data-expand-toggle>
+              <span data-label>Mehr lesen</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-row__num">03</div>
+          <div class="service-row__body">
+            <div class="eyebrow">Aufbauen, übergeben, fertig.</div>
+            <h3>Interim Communications Lead</h3>
+            <p>Viele Unternehmen merken irgendwann, dass sie ein Kommunikationsproblem haben. Was ihnen meistens fehlt, sind Struktur, klare Prozesse und ein Team, das weiß, wie gute Kommunikation funktioniert. Ich baue genau das auf. Als Interim Communications Lead entwickle ich Kommunikationsabteilungen und -prozesse von Grund auf und so, dass sie langfristig tragbar sind. Und dann gehe ich wieder, weil gute Beratung keine Abhängigkeit schafft.</p>
+            <div class="expand" data-expand>
+              <div>
+                <p>Was ich erreichen will: Strukturen, die nachhaltig tragen, von interner und externer Kommunikation über Krisenkommunikationsprozesse bis zum technischen Setup. Am Anfang steht daher immer eine genaue Analyse, was ein Unternehmen überhaupt braucht, um mit Blick auf die eigene Zielsetzung weiterzukommen. Die Befähigung des Teams und die geordnete Übergabe sind dabei von Anfang an Teil des Interims-Auftrags, so dass künftige Kommunikationsaufgaben selbständig gemeistert werden können.</p>
+              </div>
+            </div>
+            <button type="button" class="expand-toggle" data-expand-toggle>
+              <span data-label>Mehr lesen</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <div class="services__rule"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber-mich" class="about">
+    <div class="about__inner">
+      <div class="about__grid">
+        <div class="about__portrait-col">
+          <img src="assets/founder/web/eva-smile-neu.jpg" alt="Eva Rössler" />
+          <div class="about__nameplate">
+            <div class="about__nameplate-name">Eva Rössler</div>
+            <div class="about__nameplate-role">Kommunikationsberaterin &amp; Inhaberin</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Das bin ich</div>
+          <h2>Eva Rössler.</h2>
+          <p class="about__lead">
+            15 Jahre Brand und Corporate Communications, davon über zehn in
+            Führung. Journalistisch ausgebildet, strategisch geprägt, direkt im
+            Auftreten. Immer mit der Überzeugung, dass Kommunikation erst dann
+            gut ist, wenn sie wirklich <span class="script-accent">etwas verändert</span>.
+          </p>
+
+          <div class="about__tags">
+            <span class="about__tag">Journalistische Ausbildung</span>
+            <span class="about__tag">15 Jahre Brand- und Corporate Communications</span>
+            <span class="about__tag">Unternehmenssprecherin</span>
+            <span class="about__tag">10+ Jahre in Führung</span>
+            <span class="about__tag">B2B &amp; B2C</span>
+            <span class="about__tag">Corporate &amp; Startup</span>
+          </div>
+
+          <div class="about-row">
+            <div class="about-row__label">Stationen</div>
+            <div>
+              <p>Als Unternehmenssprecherin habe ich für eine der bekanntesten B2B-Klimaschutzberatungen Deutschlands gearbeitet und für den größten Fast-Food-Konzern der Welt. Ich habe Abteilungen und Prozesse aufgebaut, Interviews gegeben und komplexe Themen verständlich gemacht.</p>
+              <div class="expand" data-expand>
+                <div>
+                  <p>So habe ich bei McDonald&rsquo;s Deutschland die gesamte interne und externe Kommunikation verantwortet und Kampagnen entwickelt, die nachweislich positiv auf das Image und die Reputation des Unternehmens eingezahlt haben. Bei ClimatePartner habe ich die Kommunikationsabteilung von Grund auf aufgebaut und das Unternehmen aus einer akuten Kommunikationskrise herausgeführt: mit einem konkreten Plan, hands-on und mit klarer Positionierung in der Presse. Bei ProSiebenSat.1 habe ich die komplette Klaviatur der Corporate Communications gelernt, von interner und externer Kommunikation über PR bis zur Finanzkommunikation.</p>
+                </div>
+              </div>
+              <button type="button" class="expand-toggle" data-expand-toggle>
+                <span data-label>Mehr lesen</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="about-row">
+            <div class="about-row__label">Haltung</div>
+            <p>Diese unterschiedlichen Stationen haben mir gezeigt: Gute Kommunikation fängt nicht mit dem Kanal an. Sie fängt damit an zu verstehen, wer die Zielgruppen sind und was sie wirklich bewegt. Kommunikation muss auf Augenhöhe stattfinden, auch wenn das manchmal bedeutet, unbequeme Wahrheiten anzusprechen. Nur dann entsteht echte Verbindung und Kommunikation kann wirken.</p>
+          </div>
+
+          <div class="about-row">
+            <div class="about-row__label">Warum Parlo</div>
+            <p>Parlo Communications habe ich gegründet, weil ich direkt arbeiten wollte, ohne den Overhead einer großen Agentur. Im Austausch mit Unternehmen und Menschen, die etwas zu sagen haben und denen ich helfen kann, ihre Botschaft so zu formulieren, dass sie ankommt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="network">
+    <div class="network__inner">
+      <div class="network__head">
+        <div>
+          <div class="eyebrow">Netzwerk</div>
+          <h2>Die richtige <span class="script-accent">Expertise</span> an passender Stelle.</h2>
+        </div>
+        <p>
+          Ich arbeite am liebsten direkt, meistens auch allein. Wenn eine
+          Aufgabe mehr braucht, hole ich die richtigen Menschen dazu.
+        </p>
+      </div>
+
+      <div class="network__list">
+        <article class="partner">
+          <img src="assets/network/marita-schoeps.jpg" alt="Marita Schöps" />
+          <div>
+            <div class="partner__name">Marita Schöps</div>
+            <div class="partner__role">Transformations- und Changeberaterin</div>
+            <p class="text">Bei manchen Herausforderungen reicht Kommunikation allein nicht aus. Wenn Organisationsstrukturen ins Wanken geraten oder ein Unternehmen mitten im Change steckt, bringt Marita ihre Superpower ein. Sie erkennt sofort Muster und Stolpersteine in Strukturen und Prozessen und legt den Finger charmant genau dahin, wo es wehtut. Sie bringt dafür immer die passende Lösung mit und den Ehrgeiz, Veränderungen so zu gestalten, dass sie im Unternehmen wirklich mitgetragen werden. Dafür wurde sie 2026 auch als eine der Top-Consultants ausgezeichnet.</p>
+          </div>
+        </article>
+
+        <article class="partner">
+          <img src="assets/network/michael-kurz.jpg" alt="Michael Kurz" />
+          <div>
+            <div class="partner__name">Michael Kurz</div>
+            <div class="partner__role">Eventmanager</div>
+            <p class="text">Michael ist meine Geheimwaffe, wenn eine Kommunikationsstrategie auch auf der Bühne stattfinden soll, vom großen Corporate Event bis zur kleinen Pressekonferenz. Er kennt die passenden Gewerke wie Catering oder Technik und lässt nicht locker, bis jedes Detail sitzt. Dabei behält er den Gesamtüberblick und bringt Ruhe in jede Organisation. Als erfahrener Eventmanager setzt er jedes Unternehmen passend in Szene.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact">
+    <img class="contact__wordmark" src="assets/parlo-wordmark-transparent.png" alt="" aria-hidden="true" />
+    <div class="contact__inner">
+      <div class="contact__copy">
+        <div class="eyebrow">Kontakt</div>
+        <h2><span class="script-accent">Reden</span> wir.</h2>
+        <p>
+          Für den ersten Schritt brauchen wir kein ausformuliertes Briefing,
+          kein Pitch-Deck, keine perfekte Problemdefinition.
+        </p>
+        <p>
+          Ganz egal ob eine Kommunikationsstrategie oder akute Hilfe bei der
+          Krisenkommunikation benötigt wird, ob es um Ihre persönliche
+          Sichtbarkeit oder die Positionierung des Unternehmens geht.
+          Ich freue mich mehr über die kommunikative Herausforderung zu hören.
+        </p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="contact-form__eyebrow">Erstgespräch</div>
+        <h3>
+          Schauen wir gemeinsam beim unverbindlichen Kennenlern-Kaffee, wo
+          Ihre Kommunikation gerade steht und was sie braucht, um zu wirken.
+        </h3>
+
+        <div id="formFields">
+          <div class="form-row">
+            <label class="field">
+              <div class="field-label">Ihr Name</div>
+              <input class="field-input" placeholder="Vor- und Nachname" required />
+            </label>
+            <label class="field">
+              <div class="field-label">E-Mail</div>
+              <input class="field-input" type="email" placeholder="name@unternehmen.de" required />
+            </label>
+          </div>
+          <label class="field">
+            <div class="field-label">Unternehmen</div>
+            <input class="field-input" placeholder="Optional" />
+          </label>
+          <label class="field">
+            <div class="field-label">Worum geht&rsquo;s?</div>
+            <textarea class="field-input" placeholder="Ein paar Stichworte reichen — Strategie, Krise, Positionierung, Personal Branding…"></textarea>
+          </label>
+          <div class="contact-form__footer">
+            <p class="contact-form__consent">Mit dem Absenden stimme ich der Kontaktaufnahme zu.</p>
+            <button type="submit" class="btn btn-primary">
+              Senden
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="contact-form__sent" id="formSent" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Danke — ich melde mich.</h3>
+          <p>In der Regel innerhalb von ein bis zwei Werktagen.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="assets/parlo-lockup-transparent.png" alt="Parlo Communications" />
+      </div>
+
+      <div class="site-footer__row">
+        <p class="site-footer__claim">Für Kommunikation, die etwas <span class="script-accent">riskiert</span>.</p>
+        <nav class="site-footer__nav">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ueber-mich">Über mich</a>
+          <a href="#kontakt">
+            Kontaktformular
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+          <a href="impressum.html">Impressum</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__meta">
+        <span>© Parlo Communications 2026 · Eva Rössler</span>
+        <span>München · Deutschland</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky header state
+    var header = document.getElementById('siteHeader');
+    var onScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 120);
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // Expand/collapse "Mehr lesen" rows
+    document.querySelectorAll('[data-expand-toggle]').forEach(function (btn) {
+      var wrap = btn.previousElementSibling;
+      var label = btn.querySelector('[data-label]');
+      btn.addEventListener('click', function () {
+        var open = wrap.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        label.textContent = open ? 'Weniger' : 'Mehr lesen';
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+
+    // Contact form — client-side only, no backend wired up
+    var form = document.getElementById('contactForm');
+    var fields = document.getElementById('formFields');
+    var sent = document.getElementById('formSent');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      fields.hidden = true;
+      sent.hidden = false;
+    });
+  </script>
+</body>
+</html>

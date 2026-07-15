@@ -1,0 +1,268 @@
+/* =========================================================
+   Parlo Communications — Design Tokens
+   Colors, typography, spacing, radii, shadows, motion.
+   Drop this file into any HTML and use the CSS vars / classes.
+   ========================================================= */
+
+/* --- Webfont imports (Google Fonts near-matches; replace when Typo.psd arrives) --- */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ============================================================
+     CORE BRAND COLORS
+     ============================================================ */
+  --parlo-blue:        #3A4A9A;   /* Primary canvas — slightly purplish royal */
+  --parlo-red:         #EA5239;   /* Wordmark color — vermilion / coral red   */
+  --parlo-lilac:       #E0DAEE;   /* Soft lavender companion                  */
+  --parlo-beige:       #FFEBE6;   /* Warm off-white canvas (pink undertone)   */
+
+  /* Tonal extensions — derived. Use sparingly; keep the four anchors dominant. */
+  --parlo-blue-900:    #1F2A66;
+  --parlo-blue-700:    #2C3A82;
+  --parlo-blue-600:    #3A4A9A;   /* alias for primary blue                   */
+  --parlo-blue-500:    #5566B3;
+  --parlo-blue-300:    #8E9AD0;
+  --parlo-blue-100:    #C9D0EA;
+
+  --parlo-red-700:     #C13B22;
+  --parlo-red-600:     #EA5239;   /* alias for primary red                    */
+  --parlo-red-500:     #F0735C;
+  --parlo-red-300:     #F6A797;
+  --parlo-red-100:     #FBDDD4;
+
+  --parlo-lilac-300:   #E0DAEE;   /* alias                                    */
+  --parlo-lilac-500:   #B8AFD6;
+  --parlo-lilac-700:   #6F65A0;
+
+  --parlo-beige-100:   #FFFBF8;
+  --parlo-beige-300:   #FFEBE6;   /* alias                                    */
+  --parlo-beige-500:   #F0D8D0;
+
+  --parlo-ink:         #181B33;   /* deep ink-blue, used instead of #000      */
+  --parlo-ink-soft:    #2A2E50;
+
+  /* ============================================================
+     SEMANTIC TOKENS (light = beige canvas, default)
+     ============================================================ */
+  --bg:                var(--parlo-beige);          /* page bg                */
+  --bg-elev:           #FFFFFF;                      /* card on beige         */
+  --bg-inverse:        var(--parlo-blue);            /* full-bleed blue field */
+  --bg-soft:           #FFF5F2;                      /* subtle alt surface    */
+
+  --fg:                var(--parlo-ink);             /* default text on beige */
+  --fg-muted:          #5A5F7A;
+  --fg-subtle:         #8A8FA8;
+  --fg-on-blue:        var(--parlo-beige);           /* text on blue field    */
+  --fg-on-blue-muted:  var(--parlo-lilac);
+
+  --accent:            var(--parlo-red);             /* primary accent / CTA  */
+  --accent-fg:         #FFFFFF;
+  --accent-hover:      var(--parlo-red-700);
+
+  --link:              var(--parlo-blue);
+  --link-on-blue:      var(--parlo-red);
+
+  --border:            rgba(58, 74, 154, 0.14);      /* blue @ 14% on beige   */
+  --border-strong:     rgba(58, 74, 154, 0.28);
+  --border-on-blue:    rgba(224, 218, 238, 0.22);    /* lilac @ 22% on blue   */
+
+  --focus-ring:        0 0 0 3px rgba(234, 82, 57, 0.35);
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-script:       "Pacifico", "Brush Script MT", cursive;        /* logo flourish */
+  --font-display:      "Jost", "Helvetica Neue", system-ui, sans-serif;
+  --font-body:         "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:         "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale (rem-based, base 16px) */
+  --fs-xxs:            0.6875rem;   /* 11 - micro labels    */
+  --fs-xs:             0.75rem;     /* 12 - eyebrow         */
+  --fs-sm:             0.875rem;    /* 14 - caption         */
+  --fs-base:           1rem;        /* 16 - body            */
+  --fs-md:             1.125rem;    /* 18 - lead body       */
+  --fs-lg:             1.375rem;    /* 22 - small headline  */
+  --fs-xl:             1.75rem;     /* 28 - h3              */
+  --fs-2xl:            2.25rem;     /* 36 - h2              */
+  --fs-3xl:            3rem;        /* 48 - h1              */
+  --fs-4xl:            4rem;        /* 64 - display         */
+  --fs-5xl:            5.5rem;      /* 88 - poster          */
+
+  --lh-tight:          1.05;
+  --lh-snug:           1.2;
+  --lh-base:           1.55;
+  --lh-loose:          1.7;
+
+  --tracking-tight:    -0.01em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.06em;
+  --tracking-eyebrow:  0.18em;
+
+  /* ============================================================
+     SPACING (4-pt base grid)
+     ============================================================ */
+  --sp-0:              0;
+  --sp-1:              4px;
+  --sp-2:              8px;
+  --sp-3:              12px;
+  --sp-4:              16px;
+  --sp-5:              24px;
+  --sp-6:              32px;
+  --sp-7:              48px;
+  --sp-8:              64px;
+  --sp-9:              96px;
+  --sp-10:             128px;
+
+  /* ============================================================
+     RADII
+     ============================================================ */
+  --r-xs:              4px;
+  --r-sm:              8px;
+  --r-md:              12px;
+  --r-lg:              16px;
+  --r-xl:              24px;
+  --r-pill:            999px;
+
+  /* ============================================================
+     SHADOWS — soft, blue-tinted; never neutral black
+     ============================================================ */
+  --shadow-xs:         0 1px 2px rgba(58, 74, 154, 0.08);
+  --shadow-sm:         0 2px 6px rgba(58, 74, 154, 0.08);
+  --shadow-md:         0 8px 24px rgba(58, 74, 154, 0.10);
+  --shadow-lg:         0 24px 64px rgba(58, 74, 154, 0.16);
+  --shadow-red:        0 8px 24px rgba(234, 82, 57, 0.22);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --ease-smooth:       cubic-bezier(.2, .7, .2, 1);
+  --ease-emphasized:   cubic-bezier(.6, .05, .35, 1);
+  --dur-fast:          180ms;
+  --dur-base:          240ms;
+  --dur-slow:          400ms;
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  --container-max:     1280px;
+  --container-wide:    1440px;
+  --gutter:            24px;
+}
+
+/* =========================================================
+   BASE ELEMENT STYLES (semantic mapping)
+   Use these when authoring HTML directly; or pull tokens
+   into your component CSS.
+   ========================================================= */
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  line-height: var(--lh-base);
+}
+
+/* Headings — sentence case, tight, Jost Medium */
+h1, h2, h3, h4, h5, h6, .h-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--sp-4) 0;
+  color: var(--fg);
+  text-wrap: balance;
+}
+
+h1, .h1 { font-size: var(--fs-3xl); line-height: var(--lh-tight); }
+h2, .h2 { font-size: var(--fs-2xl); line-height: var(--lh-snug); }
+h3, .h3 { font-size: var(--fs-xl);  line-height: var(--lh-snug); font-weight: 500; }
+h4, .h4 { font-size: var(--fs-lg);  line-height: var(--lh-snug); font-weight: 500; }
+h5, .h5 { font-size: var(--fs-md);  line-height: var(--lh-snug); font-weight: 500; }
+h6, .h6 { font-size: var(--fs-base); line-height: var(--lh-snug); font-weight: 600; }
+
+.display    { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-4xl); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); }
+.poster     { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-5xl); line-height: 0.95; letter-spacing: -0.02em; }
+
+/* Paragraphs */
+p, .body { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--fg); margin: 0 0 var(--sp-4) 0; text-wrap: pretty; }
+.lead    { font-size: var(--fs-md); line-height: var(--lh-loose); color: var(--fg); }
+.caption { font-size: var(--fs-sm); color: var(--fg-muted); }
+
+/* Eyebrow / micro-label */
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-muted);
+}
+
+/* Script flourish — for one or two words, never long strings */
+.script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--parlo-red);
+  font-size: var(--fs-3xl);
+  line-height: 1;
+}
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  padding-bottom: 2px;
+  transition: background-size var(--dur-fast) var(--ease-smooth);
+}
+a:hover { background-size: 100% 1.5px; }
+
+/* Code / mono */
+code, kbd, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+code {
+  background: rgba(58, 74, 154, 0.08);
+  padding: 0.1em 0.35em;
+  border-radius: var(--r-xs);
+  color: var(--parlo-blue-700);
+}
+
+/* Selection */
+::selection {
+  background: var(--parlo-red);
+  color: #fff;
+}
+
+/* =========================================================
+   UTILITY CLASSES
+   ========================================================= */
+
+.surface-blue   { background: var(--parlo-blue); color: var(--fg-on-blue); }
+.surface-blue h1, .surface-blue h2, .surface-blue h3, .surface-blue h4 { color: var(--fg-on-blue); }
+.surface-blue .eyebrow { color: var(--fg-on-blue-muted); }
+.surface-blue a { color: var(--parlo-red); }
+
+.surface-beige  { background: var(--parlo-beige); color: var(--fg); }
+.surface-lilac  { background: var(--parlo-lilac); color: var(--parlo-blue-900); }
+.surface-red    { background: var(--parlo-red); color: #fff; }
+
+.text-red       { color: var(--parlo-red); }
+.text-blue      { color: var(--parlo-blue); }
+.text-muted     { color: var(--fg-muted); }
+.text-on-blue   { color: var(--fg-on-blue); }
+
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); }
+.container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 var(--gutter); }
