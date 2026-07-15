@@ -267,8 +267,6 @@
       display: grid; grid-template-columns: 190px 1fr; gap: 32px; align-items: start;
     }
     .partner img { width: 100%; aspect-ratio: 4 / 5; border-radius: 12px; display: block; object-fit: cover; object-position: center top; }
-    .partner__photo--zoom { width: 100%; aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden; }
-    .partner__photo--zoom img { height: 100%; transform: scale(1.12) translateY(-5%); transform-origin: 50% 8%; }
     .partner__name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 24px; color: #181B33; letter-spacing: -0.01em; margin-bottom: 6px; }
     .partner__role {
       font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
@@ -278,7 +276,7 @@
     @media (max-width: 760px) {
       .network__head { grid-template-columns: 1fr; }
       .partner { grid-template-columns: 1fr; }
-      .partner img, .partner .partner__photo--zoom { max-width: 220px; }
+      .partner img { max-width: 220px; }
     }
 
     /* ---------- Contact ---------- */
@@ -602,7 +600,7 @@
         </article>
 
         <article class="partner">
-          <div class="partner__photo--zoom"><img src="assets/network/michael-kurz.jpg" alt="Michael Kurz" /></div>
+          <img src="assets/network/micele-portrait.jpg" alt="Michael Kurz" />
           <div>
             <div class="partner__name">Michael Kurz</div>
             <div class="partner__role">Eventmanager</div>
