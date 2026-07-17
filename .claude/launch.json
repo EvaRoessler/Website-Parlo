@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "parlo-static",
-      "runtimeExecutable": "/bin/sh",
-      "runtimeArgs": ["-c", "cd /Users/evarose/Documents/GitHub/Website-Parlo && exec /usr/bin/python3 -m http.server 8000"],
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["-c", "from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler\nimport functools\nhandler = functools.partial(SimpleHTTPRequestHandler, directory='/Users/evarose/Documents/GitHub/Website-Parlo')\nThreadingHTTPServer(('127.0.0.1', 8000), handler).serve_forever()"],
       "port": 8000
     }
   ]
