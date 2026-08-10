@@ -97,10 +97,13 @@
       position: absolute; inset: 24px -24px -24px 24px;
       background: #EA5239; border-radius: 4px; z-index: 0;
     }
-    .hero__portrait img {
-      position: relative; z-index: 1; width: 100%; display: block;
-      aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%;
+    .hero__portrait-crop {
+      position: relative; z-index: 1; aspect-ratio: 4 / 5; overflow: hidden;
       border-radius: 4px; box-shadow: 0 24px 64px rgba(31,42,102,.35);
+    }
+    .hero__portrait img {
+      position: absolute; top: -3%; left: 0; width: 100%; height: 103%;
+      display: block; object-fit: cover; object-position: 52% 50%;
     }
     .hero__caption {
       position: relative; z-index: 1; margin-top: 18px; margin-left: 56px;
@@ -402,7 +405,9 @@
         </div>
         <div class="hero__portrait">
           <div class="hero__portrait-frame" aria-hidden="true"></div>
-          <img src="assets/founder/web/Eva_Headshot_Neu4.jpeg" alt="Eva Rössler" />
+          <div class="hero__portrait-crop">
+            <img src="assets/founder/web/Eva_Roessler_Portrait_Parlo_Communications_Website.jpg" alt="Eva Rössler" />
+          </div>
           <div class="hero__caption">
             <div class="hero__caption-name">Eva Rössler</div>
             <div class="hero__caption-role">Inhaberin</div>
