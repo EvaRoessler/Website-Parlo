@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="colors_and_type.css" />
   <link rel="icon" href="img/parlo-communications-wortmarke.png" />
   <style>
+    picture { display: contents; }
+    picture > source { display: none; }
     html, body { margin: 0; padding: 0; }
     body { background: #FFEBE6; font-family: 'Inter', system-ui, sans-serif; color: #181B33; }
     a { background-image: none; }
@@ -51,7 +53,7 @@
   <header class="page-header">
     <div class="page-header__inner">
       <a href="index.html" aria-label="Parlo Communications" style="background: none;">
-        <img src="img/parlo-communications-logo-beige.png" alt="Parlo Communications" width="1600" height="1131" />
+        <picture><source srcset="img/parlo-communications-logo-beige.webp" type="image/webp" /><img alt="Parlo Communications" src="img/parlo-communications-logo-beige.png" width="1000" height="707" /></picture>
       </a>
       <a class="back-link" href="index.html">← Zurück zur Startseite</a>
     </div>

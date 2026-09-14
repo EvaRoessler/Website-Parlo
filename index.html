@@ -32,6 +32,8 @@
     html { scroll-padding-top: 72px; scroll-behavior: smooth; }
     button { font: inherit; }
     img { max-width: 100%; }
+    picture { display: contents; }
+    picture > source { display: none; }
 
     /* ---------- Header ---------- */
     .site-header {
@@ -392,8 +394,8 @@
   <header class="site-header" id="siteHeader">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html" aria-label="Parlo Communications">
-        <img class="logo-default" src="img/parlo-communications-logo.png" alt="Parlo Communications" width="1600" height="1131" />
-        <img class="logo-scrolled" src="img/parlo-communications-logo-beige.png" alt="" width="1600" height="1131" />
+        <picture><source srcset="img/parlo-communications-logo.webp" type="image/webp" /><img class="logo-default" alt="Parlo Communications" src="img/parlo-communications-logo.png" width="1000" height="707" /></picture>
+        <picture><source srcset="img/parlo-communications-logo-beige.webp" type="image/webp" /><img class="logo-scrolled" alt="" src="img/parlo-communications-logo-beige.png" width="1000" height="707" /></picture>
       </a>
       <nav class="site-nav">
         <a href="#leistungen">Leistungen</a>
@@ -428,7 +430,7 @@
         <div class="hero__portrait">
           <div class="hero__portrait-frame" aria-hidden="true"></div>
           <div class="hero__portrait-crop">
-            <img src="img/eva-roessler-kommunikationsberatung-muenchen.jpg" alt="Eva Rössler, Inhaberin von Parlo Communications und Kommunikationsberaterin in München" width="1639" height="1093" loading="eager" fetchpriority="high" />
+            <picture><source srcset="img/eva-roessler-kommunikationsberatung-muenchen.webp" type="image/webp" /><img alt="Eva Rössler, Inhaberin von Parlo Communications und Kommunikationsberaterin in München" loading="eager" fetchpriority="high" src="img/eva-roessler-kommunikationsberatung-muenchen.jpg" width="1400" height="934" /></picture>
           </div>
           <div class="hero__caption">
             <div class="hero__caption-name">Eva Rössler</div>
@@ -440,7 +442,7 @@
   </section>
 
   <section class="intro">
-    <img class="intro__wordmark" src="img/parlo-communications-wortmarke.png" alt="" aria-hidden="true" width="1600" height="861" loading="lazy" />
+    <picture><source srcset="img/parlo-communications-wortmarke.webp" type="image/webp" /><img class="intro__wordmark" alt="" aria-hidden="true" loading="lazy" src="img/parlo-communications-wortmarke.png" width="1000" height="538" /></picture>
     <div class="intro__inner">
       <div class="eyebrow" style="color:#EA5239;">Was Parlo Communications macht</div>
       <p class="intro__statement">
@@ -547,7 +549,7 @@
     <div class="about__inner">
       <div class="about__grid">
         <div class="about__portrait-col">
-          <img src="img/eva-roessler-kommunikationsberaterin-portraet.jpg" alt="Eva Rössler, Kommunikationsberaterin mit 15 Jahren Erfahrung in Brand und Corporate Communications" width="2000" height="3000" loading="lazy" />
+          <picture><source srcset="img/eva-roessler-kommunikationsberaterin-portraet.webp" type="image/webp" /><img alt="Eva Rössler, Kommunikationsberaterin mit 15 Jahren Erfahrung in Brand und Corporate Communications" loading="lazy" src="img/eva-roessler-kommunikationsberaterin-portraet.jpg" width="1000" height="1500" /></picture>
           <div class="about__nameplate">
             <div class="about__nameplate-name">Eva Rössler</div>
             <div class="about__nameplate-role">Kommunikationsberaterin &amp; Inhaberin</div>
@@ -618,7 +620,7 @@
 
       <div class="network__list">
         <article class="partner">
-          <img src="img/marita-schoeps-transformationsberaterin.jpg" alt="Marita Schöps, Transformations- und Changeberaterin im Netzwerk von Parlo Communications" width="1944" height="2598" loading="lazy" />
+          <picture><source srcset="img/marita-schoeps-transformationsberaterin.webp" type="image/webp" /><img alt="Marita Schöps, Transformations- und Changeberaterin im Netzwerk von Parlo Communications" loading="lazy" src="img/marita-schoeps-transformationsberaterin.jpg" width="600" height="802" /></picture>
           <div>
             <h3 class="partner__name">Marita Schöps</h3>
             <div class="partner__role">Transformations- und Changeberaterin</div>
@@ -627,7 +629,7 @@
         </article>
 
         <article class="partner">
-          <img src="img/michael-kurz-eventmanager.jpg" alt="Michael Kurz, Eventmanager im Netzwerk von Parlo Communications" width="1560" height="1950" loading="lazy" />
+          <picture><source srcset="img/michael-kurz-eventmanager.webp" type="image/webp" /><img alt="Michael Kurz, Eventmanager im Netzwerk von Parlo Communications" loading="lazy" src="img/michael-kurz-eventmanager.jpg" width="600" height="750" /></picture>
           <div>
             <h3 class="partner__name">Michael Kurz</h3>
             <div class="partner__role">Eventmanager</div>
@@ -639,7 +641,7 @@
   </section>
 
   <section id="kontakt" class="contact">
-    <img class="contact__wordmark" src="img/parlo-communications-wortmarke.png" alt="" aria-hidden="true" width="1600" height="861" loading="lazy" />
+    <picture><source srcset="img/parlo-communications-wortmarke.webp" type="image/webp" /><img class="contact__wordmark" alt="" aria-hidden="true" loading="lazy" src="img/parlo-communications-wortmarke.png" width="1000" height="538" /></picture>
     <div class="contact__inner">
       <div class="contact__copy">
         <div class="eyebrow">Kontakt</div>
@@ -703,7 +705,7 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="site-footer__brand">
-        <img src="img/parlo-communications-logo.png" alt="" width="1600" height="1131" loading="lazy" />
+        <picture><source srcset="img/parlo-communications-logo.webp" type="image/webp" /><img alt="" loading="lazy" src="img/parlo-communications-logo.png" width="1000" height="707" /></picture>
       </div>
 
       <div class="site-footer__row">
