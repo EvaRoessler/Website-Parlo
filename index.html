@@ -2,11 +2,28 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <title>Parlo Communications — Strategische Kommunikation · Eva Rössler</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Parlo Communications: strategische Kommunikation, die nicht beim Konzept aufhört, sondern erst dann fertig ist, wenn sie wirkt. Eva Rössler, München." />
+  <title>Strategische Kommunikationsberatung München | Eva Rössler</title>
+  <meta name="description" content="Strategische Kommunikationsberatung in München: Kommunikationsstrategie, Positionierung und Krisenkommunikation. Jetzt Erstgespräch vereinbaren.">
+  <link rel="canonical" href="https://www.parlo-communications.de/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Eva Rössler">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Parlo Communications">
+  <meta property="og:url" content="https://www.parlo-communications.de/">
+  <meta property="og:title" content="Parlo Communications – Kommunikation, die durchdringt">
+  <meta property="og:description" content="Eva Rössler berät Unternehmen und Führungskräfte strategisch: Kommunikationsstrategie, Personal Branding, Interim Communications Lead.">
+  <meta property="og:image" content="https://www.parlo-communications.de/img/parlo-communications-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Parlo Communications – Eva Rössler, strategische Kommunikationsberatung in München">
+
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="colors_and_type.css" />
-  <link rel="icon" href="assets/parlo-wordmark-transparent.png" />
+  <link rel="icon" href="img/parlo-communications-wortmarke.png" />
   <style>
     html, body { margin: 0; padding: 0; }
     body { background: #FFEBE6; font-family: 'Inter', system-ui, sans-serif; color: #181B33; }
@@ -72,6 +89,10 @@
       font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px;
       letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px;
     }
+    /* Eyebrow als Überschrift (SEO): Heading-Defaults neutralisieren, Optik bleibt */
+    h1.eyebrow, h2.eyebrow, h3.eyebrow {
+      margin: 0 0 12px; line-height: var(--lh-base); color: inherit; text-wrap: wrap;
+    }
 
     /* ---------- Hero ---------- */
     .hero { background: #3A4A9A; color: #FFEBE6; padding: 110px 32px; position: relative; overflow: hidden; }
@@ -80,13 +101,13 @@
       display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
       gap: 72px; align-items: center;
     }
-    .hero h1 {
+    .hero .hero__quote {
       font-family: 'Jost', sans-serif; font-weight: 500;
       font-size: clamp(40px, 4.8vw, 70px); line-height: 1.08; letter-spacing: -0.02em;
       color: #FFEBE6; margin: 0 0 32px; text-wrap: balance;
     }
-    .hero h1 .quote { color: #EA5239; }
-    .hero h1 .script { font-family: 'Pacifico', cursive; color: #EA5239; font-weight: 400; letter-spacing: 0; font-size: 1.01em; }
+    .hero .hero__quote .quote { color: #EA5239; }
+    .hero .hero__quote .script { font-family: 'Pacifico', cursive; color: #EA5239; font-weight: 400; letter-spacing: 0; font-size: 1.01em; }
     .hero p.lead {
       font-family: 'Inter', sans-serif; font-size: 19px; line-height: 1.55;
       color: #E0DAEE; margin: 0 0 40px; max-width: 620px;
@@ -209,7 +230,7 @@
     .about__inner { max-width: 1280px; margin: 0 auto; }
     .about__grid { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 80px; align-items: start; }
     .about__portrait-col { position: sticky; top: 100px; }
-    .about__portrait-col img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; display: block; }
+    .about__portrait-col img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; display: block; }
     .about__nameplate { margin-top: 18px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
     .about__nameplate-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 22px; color: #FFEBE6; letter-spacing: -0.015em; }
     .about__nameplate-role {
@@ -238,6 +259,7 @@
     .about-row__label {
       font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
       letter-spacing: 0.18em; text-transform: uppercase; color: #E0DAEE; padding-top: 4px;
+      margin: 0; line-height: var(--lh-base); text-wrap: wrap;
     }
     .about-row p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #FFEBE6; margin: 0; }
     .about-row .expand p { color: #E0DAEE; margin: 14px 0 0; padding-left: 16px; border-left: 2px solid rgba(234,82,57,.55); }
@@ -269,8 +291,8 @@
       background: #FFFBF8; border: 1px solid rgba(58,74,154,.10); border-radius: 18px; padding: 28px;
       display: grid; grid-template-columns: 190px 1fr; gap: 32px; align-items: start;
     }
-    .partner img { width: 100%; aspect-ratio: 4 / 5; border-radius: 12px; display: block; object-fit: cover; object-position: center top; }
-    .partner__name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 24px; color: #181B33; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .partner img { width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 12px; display: block; object-fit: cover; object-position: center top; }
+    .partner__name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 24px; color: #181B33; letter-spacing: -0.01em; margin: 0 0 6px; line-height: var(--lh-base); text-wrap: wrap; }
     .partner__role {
       font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px;
       letter-spacing: 0.18em; text-transform: uppercase; color: #5A5F7A;
@@ -370,8 +392,8 @@
   <header class="site-header" id="siteHeader">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html" aria-label="Parlo Communications">
-        <img class="logo-default" src="assets/parlo-lockup-transparent.png" alt="Parlo Communications" />
-        <img class="logo-scrolled" src="assets/parlo-lockup-on-beige.png" alt="Parlo Communications" />
+        <img class="logo-default" src="img/parlo-communications-logo.png" alt="Parlo Communications" width="1600" height="1131" />
+        <img class="logo-scrolled" src="img/parlo-communications-logo-beige.png" alt="" width="1600" height="1131" />
       </a>
       <nav class="site-nav">
         <a href="#leistungen">Leistungen</a>
@@ -389,8 +411,8 @@
     <div class="hero__inner">
       <div class="hero__grid">
         <div>
-          <div class="eyebrow" style="color:#E0DAEE;">Strategische Kommunikationsberatung · München</div>
-          <h1><span class="quote">„</span>Die meisten Unternehmen haben etwas zu sagen. Sie sagen es nur nicht so, dass es <span class="script">gehört wird</span>.<span class="quote">"</span></h1>
+          <h1 class="eyebrow" style="color:#E0DAEE;">Strategische Kommunikationsberatung · München</h1>
+          <h2 class="hero__quote"><span class="quote">„</span>Die meisten Unternehmen haben etwas zu sagen. Sie sagen es nur nicht so, dass es <span class="script">gehört wird</span>.<span class="quote">"</span></h2>
           <p class="lead">Parlo Communications steht für Kommunikation, die durchdringt.</p>
           <div class="hero__actions">
             <a class="btn btn-onblue" href="#kontakt">
@@ -406,7 +428,7 @@
         <div class="hero__portrait">
           <div class="hero__portrait-frame" aria-hidden="true"></div>
           <div class="hero__portrait-crop">
-            <img src="assets/founder/web/Eva_Roessler_Portrait_Parlo_Communications_Website.jpg" alt="Eva Rössler" />
+            <img src="img/eva-roessler-kommunikationsberatung-muenchen.jpg" alt="Eva Rössler, Inhaberin von Parlo Communications und Kommunikationsberaterin in München" width="1639" height="1093" loading="eager" fetchpriority="high" />
           </div>
           <div class="hero__caption">
             <div class="hero__caption-name">Eva Rössler</div>
@@ -418,7 +440,7 @@
   </section>
 
   <section class="intro">
-    <img class="intro__wordmark" src="assets/parlo-wordmark-transparent.png" alt="" aria-hidden="true" />
+    <img class="intro__wordmark" src="img/parlo-communications-wortmarke.png" alt="" aria-hidden="true" width="1600" height="861" loading="lazy" />
     <div class="intro__inner">
       <div class="eyebrow" style="color:#EA5239;">Was Parlo Communications macht</div>
       <p class="intro__statement">
@@ -458,7 +480,7 @@
 
   <section id="leistungen" class="services">
     <div class="services__inner">
-      <div class="eyebrow">Mein Angebot</div>
+      <h2 class="eyebrow">Mein Angebot</h2>
 
       <div style="margin-top:24px;">
 
@@ -525,7 +547,7 @@
     <div class="about__inner">
       <div class="about__grid">
         <div class="about__portrait-col">
-          <img src="assets/founder/web/Eva_Sessel.jpg" alt="Eva Rössler" />
+          <img src="img/eva-roessler-kommunikationsberaterin-portraet.jpg" alt="Eva Rössler, Kommunikationsberaterin mit 15 Jahren Erfahrung in Brand und Corporate Communications" width="2000" height="3000" loading="lazy" />
           <div class="about__nameplate">
             <div class="about__nameplate-name">Eva Rössler</div>
             <div class="about__nameplate-role">Kommunikationsberaterin &amp; Inhaberin</div>
@@ -552,7 +574,7 @@
           </div>
 
           <div class="about-row">
-            <div class="about-row__label">Stationen</div>
+            <h3 class="about-row__label">Stationen</h3>
             <div>
               <p>Als Unternehmenssprecherin habe ich für eine der bekanntesten B2B-Klimaschutzberatungen Deutschlands gearbeitet und für den größten Fast-Food-Konzern der Welt. Ich habe Abteilungen und Prozesse aufgebaut, Interviews gegeben und komplexe Themen verständlich gemacht.</p>
               <div class="expand" data-expand>
@@ -568,12 +590,12 @@
           </div>
 
           <div class="about-row">
-            <div class="about-row__label">Haltung</div>
+            <h3 class="about-row__label">Haltung</h3>
             <p>Diese unterschiedlichen Stationen haben mir gezeigt: Gute Kommunikation fängt nicht mit dem Kanal an. Sie fängt damit an zu verstehen, wer die Zielgruppen sind und was sie wirklich bewegt. Kommunikation muss auf Augenhöhe stattfinden, auch wenn das manchmal bedeutet, unbequeme Wahrheiten anzusprechen. Nur dann entsteht echte Verbindung und Kommunikation kann wirken.</p>
           </div>
 
           <div class="about-row">
-            <div class="about-row__label">Warum Parlo</div>
+            <h3 class="about-row__label">Warum Parlo</h3>
             <p>Parlo Communications habe ich gegründet, weil ich direkt arbeiten wollte, ohne den Overhead einer großen Agentur. Im Austausch mit Unternehmen und Menschen, die etwas zu sagen haben und denen ich helfen kann, ihre Botschaft so zu formulieren, dass sie ankommt.</p>
           </div>
         </div>
@@ -596,18 +618,18 @@
 
       <div class="network__list">
         <article class="partner">
-          <img src="assets/network/Marita.jpg" alt="Marita Schöps" />
+          <img src="img/marita-schoeps-transformationsberaterin.jpg" alt="Marita Schöps, Transformations- und Changeberaterin im Netzwerk von Parlo Communications" width="1944" height="2598" loading="lazy" />
           <div>
-            <div class="partner__name">Marita Schöps</div>
+            <h3 class="partner__name">Marita Schöps</h3>
             <div class="partner__role">Transformations- und Changeberaterin</div>
             <p class="text">Bei manchen Herausforderungen reicht Kommunikation allein nicht aus. Wenn Organisationsstrukturen ins Wanken geraten oder ein Unternehmen mitten im Change steckt, bringt Marita ihre Superpower ein. Sie erkennt sofort Muster und Stolpersteine in Strukturen und Prozessen und legt den Finger charmant genau dahin, wo es wehtut. Sie bringt dafür immer die passende Lösung mit und den Ehrgeiz, Veränderungen so zu gestalten, dass sie im Unternehmen wirklich mitgetragen werden. Dafür wurde sie 2026 auch als eine der Top-Consultants ausgezeichnet.</p>
           </div>
         </article>
 
         <article class="partner">
-          <img src="assets/network/micele-portrait.jpg" alt="Michael Kurz" />
+          <img src="img/michael-kurz-eventmanager.jpg" alt="Michael Kurz, Eventmanager im Netzwerk von Parlo Communications" width="1560" height="1950" loading="lazy" />
           <div>
-            <div class="partner__name">Michael Kurz</div>
+            <h3 class="partner__name">Michael Kurz</h3>
             <div class="partner__role">Eventmanager</div>
             <p class="text">Michael ist meine Geheimwaffe, wenn eine Kommunikationsstrategie auch auf der Bühne stattfinden soll, vom großen Corporate Event bis zur kleinen Pressekonferenz. Er kennt die passenden Gewerke wie Catering oder Technik und lässt nicht locker, bis jedes Detail sitzt. Dabei behält er den Gesamtüberblick und bringt Ruhe in jede Organisation. Als erfahrener Eventmanager setzt er jedes Unternehmen passend in Szene.</p>
           </div>
@@ -617,7 +639,7 @@
   </section>
 
   <section id="kontakt" class="contact">
-    <img class="contact__wordmark" src="assets/parlo-wordmark-transparent.png" alt="" aria-hidden="true" />
+    <img class="contact__wordmark" src="img/parlo-communications-wortmarke.png" alt="" aria-hidden="true" width="1600" height="861" loading="lazy" />
     <div class="contact__inner">
       <div class="contact__copy">
         <div class="eyebrow">Kontakt</div>
@@ -681,7 +703,7 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="site-footer__brand">
-        <img src="assets/parlo-lockup-transparent.png" alt="Parlo Communications" />
+        <img src="img/parlo-communications-logo.png" alt="" width="1600" height="1131" loading="lazy" />
       </div>
 
       <div class="site-footer__row">
@@ -734,6 +756,52 @@
       fields.hidden = true;
       sent.hidden = false;
     });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.parlo-communications.de/#parlo",
+    "name": "Parlo Communications",
+    "description": "Strategische Kommunikationsberatung in München für Unternehmen und Führungskräfte.",
+    "url": "https://www.parlo-communications.de/",
+    "logo": "https://www.parlo-communications.de/img/parlo-communications-logo.png",
+    "image": "https://www.parlo-communications.de/img/eva-roessler-kommunikationsberatung-muenchen.jpg",
+    "email": "hello@parlo-communications.de",
+    "founder": {
+      "@type": "Person",
+      "name": "Eva Rössler",
+      "jobTitle": "Kommunikationsberaterin",
+      "sameAs": ["https://www.linkedin.com/in/eva-roessler"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "München",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "München" },
+      { "@type": "Country", "name": "Deutschland" }
+    ],
+    "knowsAbout": [
+      "Strategische Kommunikation", "Kommunikationsstrategie", "Krisenkommunikation",
+      "Reputationsmanagement", "Personal Branding", "Executive Positioning",
+      "Markenpositionierung", "Interne Kommunikation", "Externe Kommunikation",
+      "Interim Management Kommunikation"
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service",
+        "name": "Strategische Kommunikationsberatung",
+        "description": "Kommunikationsstrategien, die auf Unternehmensziele einzahlen – von der Medienarbeit bis zur Krisenkommunikation." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service",
+        "name": "Personal Branding & Positionierung",
+        "description": "Authentische Positionierung von Führungspersönlichkeiten, inklusive Medientraining und Präsentationstraining." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service",
+        "name": "Interim Communications Lead",
+        "description": "Aufbau von Kommunikationsabteilungen und -prozessen auf Zeit, mit geordneter Übergabe." } }
+    ]
+  }
   </script>
 </body>
 </html>

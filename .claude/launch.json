@@ -3,6 +3,12 @@
   "configurations": [
     {
       "name": "parlo-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-I",
+        "-c",
+        "import functools, http.server as h; h.test(HandlerClass=functools.partial(h.SimpleHTTPRequestHandler, directory='/private/tmp/claude-501/-Users-evarose-Documents-GitHub-Website-Parlo/bcc159cc-77ff-490c-83ce-0bdedd1009e7/scratchpad/site'), port=8000, bind='127.0.0.1')"
+      ],
       "url": "http://localhost:8000",
       "port": 8000
     }
