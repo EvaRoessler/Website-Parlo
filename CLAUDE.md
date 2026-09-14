@@ -172,9 +172,10 @@ Navigationshierarchie gibt.
 | Logo Footer | `parlo-communications-logo-weiss.svg` | `` (leer, dekorativ) |
 | Social-Vorschau | `parlo-communications-og.jpg` | `Parlo Communications – Eva Rössler, strategische Kommunikationsberatung in München` |
 
-Das Social-Vorschaubild (`parlo-communications-og.jpg`) muss noch erstellt
-werden: genau 1200 × 630 Pixel, unter 1 MB. Es erscheint, wenn die Seite auf
-LinkedIn oder per WhatsApp geteilt wird.
+Das Social-Vorschaubild liegt unter `img/parlo-communications-og.jpg`
+(1200 × 630 Pixel, 80 KB). Es erscheint, wenn die Seite auf LinkedIn oder per
+WhatsApp geteilt wird. Bei einem Austausch dieselben Maße und den Dateinamen
+beibehalten, damit die `og:image`-Verweise auf allen Seiten gültig bleiben.
 
 ---
 
